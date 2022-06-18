@@ -100,3 +100,10 @@ final DateTime dateTime10 = DateTime(2022, 3, 2);
 debugPrint(dateTime10.getWeak());
 debugPrint(dateTime10.getWeak(locale: locale));
 ```
+##### NOTE:
+The above code uses the picture because the Chinese characters cause the package to be divided equally. Enter the following:
+
+![DateTime](https://github.com/zhoushuangjian001/idkit/blob/master/readme/datetime.png?raw=true)
+
+## Suggest
+If there is any problem in use, please contact me in time. Meanwhile, your new features or components are welcome.
