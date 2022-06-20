@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:idkit/idkit.dart';
 
 void main() {
-  timeFormat();
+  timeFormatHandle();
+  thousandsHandle();
 }
 
-void timeFormat() {
+void timeFormatHandle() {
   /// Time formatting.
   final DateTime dateTime = DateTime(2022, 6, 12, 9, 22, 50);
   final String style1 = dateTime.format();
@@ -82,4 +83,47 @@ void timeFormat() {
   final DateTime dateTime10 = DateTime(2022, 3, 2);
   debugPrint(dateTime10.getWeak());
   debugPrint(dateTime10.getWeak(locale: locale));
+}
+
+void thousandsHandle() {
+  // int
+  debugPrint('// Int ');
+  debugPrint((-0).format());
+  debugPrint((-123).format());
+  debugPrint((-1234).format());
+  debugPrint(123456.format());
+  debugPrint(1234567.format());
+  debugPrint(123456789.format());
+  debugPrint(1234567890.format());
+  // double
+  debugPrint('\n// Double ');
+  debugPrint(0.0.format());
+  debugPrint(123.12.format());
+  debugPrint(1234.123.format());
+  debugPrint(123456.1234.format());
+  debugPrint(1234567.12345.format());
+  debugPrint(123456789.123456.format());
+  debugPrint(1234567890.1234567.format());
+  // // String
+  debugPrint('\n// String ');
+  debugPrint('0.0'.format());
+  debugPrint('123.12'.format());
+  debugPrint('1234.123'.format());
+  debugPrint('-  123456.1234'.format());
+  debugPrint('+ 1234567.12345 '.format());
+  debugPrint('-1234567 89.123456'.format());
+  debugPrint('+ 1234 567890.123 4567 '.format());
+
+  /// Custom thousandth symbol
+  debugPrint('\n// Custom thousandth symbol ');
+  debugPrint(1234567.format(symbol: '_'));
+  debugPrint(1234567890.2.format(symbol: '、'));
+
+  /// Retain a certain number of decimal places
+  debugPrint('\n// Retain a certain number of decimal places;Whether to round');
+  debugPrint(0.56.format(fractionDigits: 0));
+  debugPrint(0.56.format(fractionDigits: 0, round: false));
+  debugPrint(1234.5.format(fractionDigits: 2));
+  debugPrint(1234567.123490.format(fractionDigits: 4));
+  debugPrint(1234567.123490.format(fractionDigits: 4, round: false));
 }

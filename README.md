@@ -5,6 +5,8 @@ The idkit is a package that is more convenient for Flutter developers to develop
 
 ### Feature Catalog
 [1.Handling of time.](#jump1)
+[2.Money thousandths processing.](#jump2)
+
 
 ### Example
 #### <p id='jump1'>1. Handling Of Time</p>
@@ -100,9 +102,54 @@ final DateTime dateTime10 = DateTime(2022, 3, 2);
 debugPrint(dateTime10.getWeak());
 debugPrint(dateTime10.getWeak(locale: locale));
 ```
-##### NOTE:
-The above code uses the picture because the Chinese characters cause the package to be divided equally. Enter the following:
+##### NOTE: Screenshot of test results
+![DateTime](https://github.com/zhoushuangjian001/idkit/blob/master/readme/datetime.png?raw=true)
 
+#### <p id='jump2'>2. Money thousandths processing</p>
+
+```dart
+// int
+debugPrint('// Int ');
+debugPrint((-0).format());
+debugPrint((-123).format());
+debugPrint((-1234).format());
+debugPrint(123456.format());
+debugPrint(1234567.format());
+debugPrint(123456789.format());
+debugPrint(1234567890.format());
+// double
+debugPrint('\n// Double ');
+debugPrint(0.0.format());
+debugPrint(123.12.format());
+debugPrint(1234.123.format());
+debugPrint(123456.1234.format());
+debugPrint(1234567.12345.format());
+debugPrint(123456789.123456.format());
+debugPrint(1234567890.1234567.format());
+// // String
+debugPrint('\n// String ');
+debugPrint('0.0'.format());
+debugPrint('123.12'.format());
+debugPrint('1234.123'.format());
+debugPrint('-  123456.1234'.format());
+debugPrint('+ 1234567.12345 '.format());
+debugPrint('-1234567 89.123456'.format());
+debugPrint('+ 1234 567890.123 4567 '.format());
+
+/// Custom thousandth symbol
+debugPrint('\n// Custom thousandth symbol ');
+debugPrint(1234567.format(symbol: '_'));
+debugPrint(1234567890.2.format(symbol: '、'));
+
+/// Retain a certain number of decimal places
+debugPrint('\n// Retain a certain number of decimal places;Whether to round');
+debugPrint(0.56.format(fractionDigits: 0));
+debugPrint(0.56.format(fractionDigits: 0, round: false));
+debugPrint(1234.5.format(fractionDigits: 2));
+debugPrint(1234567.123490.format(fractionDigits: 4));
+debugPrint(1234567.123490.format(fractionDigits: 4, round: false));
+```
+##### NOTE: Screenshot of test results
 ![DateTime](https://github.com/zhoushuangjian001/idkit/blob/master/readme/datetime.png?raw=true)
 
 ## Suggest

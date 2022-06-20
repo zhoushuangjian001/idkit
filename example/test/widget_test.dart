@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Time Format Test', () {
-    ma.timeFormat();
+    // ma.timeFormatHandle();
+    ma.thousandsHandle();
   });
 }
