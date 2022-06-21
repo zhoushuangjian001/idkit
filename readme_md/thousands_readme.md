@@ -1,3 +1,5 @@
+<p id='jump'></p>
+
 ## Introduce
 The main functions introduced below are the processing of adding thousandths symbols to money, and the reservation of specified digits of money. At the same time, you can also specify whether to round off.
 
@@ -47,3 +49,6 @@ debugPrint(1234567.123490.format(fractionDigits: 4, round: false));
 ## Example Test Result Screenshot
 
 ![thousands](https://github.com/zhoushuangjian001/idkit/blob/master/readme_img/thousands.png?raw=true)
+
+## Friendship Link
+**[👈🏻 Return Page](https://pub.flutter-io.cn/packages/idkit)** &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[ 👆🏻 Return Top](#jump)**

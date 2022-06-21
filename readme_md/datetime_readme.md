@@ -1,3 +1,5 @@
+<p id='jump'></p>
+
 ## Introduce
 The main function described below is to format the given time. The functions include: time conventional format processing, time friendly format processing, judging time is the day of the week, etc. At the same time, all support internationalization, mainly in English and Chinese.
 
@@ -97,3 +99,6 @@ debugPrint(dateTime10.getWeak(locale: locale));
 
 ## Example Test Result Screenshot
 ![datetime](https://github.com/zhoushuangjian001/idkit/blob/master/readme_img/datetime.png?raw=true)
+
+## Friendship Link
+**[👈🏻 Return Page](https://pub.flutter-io.cn/packages/idkit)** &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[ 👆🏻 Return Top](#jump)**

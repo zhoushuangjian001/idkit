@@ -1,3 +1,5 @@
+<p id='jump'></>
+
 ## Introduce
 The components mainly introduced below are the gap blocks, which are mainly used for the spacing between components.
 ## Example Display
@@ -23,3 +25,6 @@ Column(
 ## Example Test Result Screenshot 
 
 ![gap](https://github.com/zhoushuangjian001/idkit/blob/master/readme_img/gap.png?raw=true)
+
+## Friendship Link
+**[👈🏻 Return Page](https://pub.flutter-io.cn/packages/idkit)** &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[ 👆🏻 Return Top](#jump)**
