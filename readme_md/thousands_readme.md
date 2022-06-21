@@ -45,4 +45,5 @@ debugPrint(1234567.123490.format(fractionDigits: 4));
 debugPrint(1234567.123490.format(fractionDigits: 4, round: false));
 ```
 ## Example Test Result Screenshot
-![datetime]()
+
+![thousands](https://github.com/zhoushuangjian001/idkit/blob/master/readme_img/thousands.png?raw=true)

@@ -96,4 +96,4 @@ debugPrint(dateTime10.getWeak(locale: locale));
 ```
 
 ## Example Test Result Screenshot
-![datetime]()
+![datetime](https://github.com/zhoushuangjian001/idkit/blob/master/readme_img/datetime.png?raw=true)

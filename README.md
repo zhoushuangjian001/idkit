@@ -8,5 +8,7 @@ The idkit is a package that is more convenient for Flutter developers to develop
 
 [2.Money thousandths processing.](/readme_md/thousands_readme.md)
 
+[3.Gap widget between other widgets.](/readme_md/gap_readme.md)
+
 ## Suggest
 If there is any problem in use, please contact me in time. Meanwhile, your new features or components are welcome.
