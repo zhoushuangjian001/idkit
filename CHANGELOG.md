@@ -13,6 +13,6 @@ Solve the 0.0.1 version code analysis problem.
 ##  0.0.3
 Solve the 0.0.2 version code analysis problem.
 
-## 0.04
+## 0.0.4
 1. Thousands of money formatting. 
 2. Gap between widgets Convenience widget.
