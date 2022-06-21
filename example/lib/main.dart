@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:idkit/idkit.dart';
 
 void main() {
-  timeFormatHandle();
-  thousandsHandle();
+  runApp(const GapWidget());
 }
 
 void timeFormatHandle() {
@@ -126,4 +125,53 @@ void thousandsHandle() {
   debugPrint(1234.5.format(fractionDigits: 2));
   debugPrint(1234567.123490.format(fractionDigits: 4));
   debugPrint(1234567.123490.format(fractionDigits: 4, round: false));
+}
+
+/// Gap Widget
+class GapWidget extends StatelessWidget {
+  const GapWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Gap Widget Test'),
+        ),
+        body: Container(
+          alignment: Alignment.center,
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 40,
+                color: Colors.red,
+              ),
+              20.vGap,
+              Container(
+                height: 20,
+                color: Colors.green,
+              ),
+              50.vGap,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    width: 100,
+                    height: 20,
+                    color: Colors.red,
+                  ),
+                  100.hGap,
+                  Container(
+                    height: 20,
+                    width: 100,
+                    color: Colors.pink,
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
