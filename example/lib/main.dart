@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:idkit/idkit.dart';
 
 void main() {
-  runApp(const GapWidget());
+  runApp(const Widgets());
 }
 
 void timeFormatHandle() {
@@ -127,35 +127,45 @@ void thousandsHandle() {
   debugPrint(1234567.123490.format(fractionDigits: 4, round: false));
 }
 
-/// Gap Widget
-class GapWidget extends StatelessWidget {
-  const GapWidget({Key? key}) : super(key: key);
+/// Widgets Test
+class Widgets extends StatelessWidget {
+  const Widgets({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('Gap Widget Test')),
+        appBar: AppBar(title: const Text('Widgets Test')),
         body: Container(
           alignment: Alignment.center,
-          child: Column(
-            children: <Widget>[
-              Container(height: 40, color: Colors.red),
-              20.vGap,
-              Container(height: 20, color: Colors.green),
-              50.vGap,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(width: 100, height: 20, color: Colors.red),
-                  100.hGap,
-                  Container(height: 20, width: 100, color: Colors.pink),
-                ],
-              )
-            ],
-          ),
+          child: const GapTest(),
         ),
       ),
+    );
+  }
+}
+
+/// Gap Test
+class GapTest extends StatelessWidget {
+  const GapTest({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(height: 40, color: Colors.red),
+        20.vGap,
+        Container(height: 20, color: Colors.green),
+        50.vGap,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(width: 100, height: 20, color: Colors.red),
+            100.hGap,
+            Container(height: 20, width: 100, color: Colors.pink),
+          ],
+        )
+      ],
     );
   }
 }

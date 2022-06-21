@@ -1,6 +1,6 @@
 name: idkit
 description: idkit is a package that makes it easier for developers to develop projects, and contains a variety of functions and components.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/zhoushuangjian001/idkit
 
 environment:
