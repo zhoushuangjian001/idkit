@@ -10,5 +10,8 @@ The idkit is a package that is more convenient for Flutter developers to develop
 
 [3.Gap widget between other widgets.](https://github.com/zhoushuangjian001/idkit/blob/master/readme_md/gap_readme.md)
 
+[4.Hexadecimal number to color.](https://github.com/zhoushuangjian001/idkit/blob/master/readme_md/color_readme.md)
+
+
 ## Suggest
 If there is any problem in use, please contact me in time. Meanwhile, your new features or components are welcome.

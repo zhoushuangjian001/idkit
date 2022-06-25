@@ -51,4 +51,4 @@ debugPrint(1234567.123490.format(fractionDigits: 4, round: false));
 ![thousands](https://github.com/zhoushuangjian001/idkit/blob/master/readme_img/thousands.png?raw=true)
 
 ## Friendship Link
-**[👈🏻 Return Page](https://pub.flutter-io.cn/packages/idkit)** &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[ 👆🏻 Return Top](#jump)**
+**[👈🏻 Return Previous Page](https://pub.flutter-io.cn/packages/idkit)** &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[ 👆🏻 Return Top](#jump)**

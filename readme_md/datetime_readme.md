@@ -101,4 +101,4 @@ debugPrint(dateTime10.getWeak(locale: locale));
 ![datetime](https://github.com/zhoushuangjian001/idkit/blob/master/readme_img/datetime.png?raw=true)
 
 ## Friendship Link
-**[👈🏻 Return Page](https://pub.flutter-io.cn/packages/idkit)** &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[ 👆🏻 Return Top](#jump)**
+**[👈🏻 Return Previous Page](https://pub.flutter-io.cn/packages/idkit)** &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[ 👆🏻 Return Top](#jump)**

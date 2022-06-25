@@ -138,7 +138,56 @@ class Widgets extends StatelessWidget {
         appBar: AppBar(title: const Text('Widgets Test')),
         body: Container(
           alignment: Alignment.center,
-          child: const GapTest(),
+          child: const ColorWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+/// Color
+class ColorWidget extends StatelessWidget {
+  const ColorWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // HEX
+    Color color = '#3767FE'.hexColor;
+    color = '#3767FE'.color;
+    Color color1 = '3707FE'.hexColor;
+    color1 = '3707FE'.color;
+    // AHEX
+    Color color2 = '#FF37670E'.aHexColor;
+    color2 = 'FF37670E'.aHexColor;
+    // HEXA
+    Color color3 = '#A067FEFF'.hexAColor;
+    color3 = 'A067FEFF'.hexAColor;
+    return Scaffold(
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              height: 100,
+              width: 100,
+              color: color,
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              color: color1,
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              color: color2,
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              color: color3,
+            ),
+          ],
         ),
       ),
     );
@@ -166,6 +215,29 @@ class GapTest extends StatelessWidget {
           ],
         )
       ],
+    );
+  }
+}
+
+/// Choice Widget
+class ListChoice extends StatelessWidget {
+  const ListChoice({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final List<ChoiceState<String>> list =
+        ['王二', '张三', '李四'].map((e) => ChoiceState(data: e)).toList();
+    return IDKitChoice<String>.list(
+      type: ChoiceType.multiple,
+      sources: list,
+      itemBuilder: (context, data, index) {
+        final color = data.state ? Colors.red : Colors.blue;
+        return Container(
+          color: color,
+          alignment: Alignment.center,
+          child: Text(data.data ?? ''),
+        );
+      },
     );
   }
 }
