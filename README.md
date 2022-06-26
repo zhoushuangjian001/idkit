@@ -12,6 +12,10 @@ The idkit is a package that is more convenient for Flutter developers to develop
 
 [4.Hexadecimal number to color.](https://github.com/zhoushuangjian001/idkit/blob/master/readme_md/color_readme.md)
 
+[5.Mobile phone number, bank card number, ID number desensitization.](https://github.com/zhoushuangjian001/idkit/blob/master/readme_md/desensitization_readme.md)
+
+[6.Formatting of mobile phone numbers and bank card numbers.](https://github.com/zhoushuangjian001/idkit/blob/master/readme_md/format_readme.md)
+
 
 ## Suggest
 If there is any problem in use, please contact me in time. Meanwhile, your new features or components are welcome.
