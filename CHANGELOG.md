@@ -16,3 +16,7 @@ Solve the 0.0.2 version code analysis problem.
 ## 0.0.4
 1. Thousands of money formatting. 
 2. Gap between widgets Convenience widget.
+
+## 0.0.5
+1. Hexadecimal strings are directly converted to colors.
+2. Mobile phone number, bank card number, ID number desensitization and mobile phone number, bank card number formatting.

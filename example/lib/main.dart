@@ -127,6 +127,54 @@ void thousandsHandle() {
   debugPrint(1234567.123490.format(fractionDigits: 4, round: false));
 }
 
+/// Desensitized
+void desensitizedMethod() {
+  /// Phone number desensitization
+  final phone = '18801210283'.phoneDesensitized;
+  // Handling extra spaces
+  final phone1 = ' 18801210835 '.phoneDesensitized;
+  final phone2 = '188 0121 0283'.phoneDesensitized;
+  debugPrint('\n// Phone number desensitization');
+  debugPrint(phone); // 188****0283
+  debugPrint(phone1); // 188****0835
+  debugPrint(phone2); // 188****0283
+
+  /// Bank card number desensitization
+  final String bank16 = '6333234433554466'.bankDesensitized;
+  final String bank17 = '63332344335544661'.bankDesensitized;
+  final String bank19 = '6333234433554466234'.bankDesensitized;
+  debugPrint('\n// Bank card number desensitization');
+  debugPrint(bank16); // **** 4466
+  debugPrint(bank17); // **** 4661
+  debugPrint(bank19); // **** 6234
+
+  /// ID card number desensitization
+  final String id = '411122128995160537'.idDesensitized;
+  debugPrint('\n// ID card number desensitization');
+  debugPrint(id); // 411122********0537
+}
+
+void phoneAndBankFormatMethod() {
+  // Phone number format
+  final String phone = '18702210183'.phoneFormat;
+  final String phone1 = '187 3221 0183'.phoneFormat;
+  final String phone2 = ' 187 42220183 '.phoneFormat;
+  debugPrint('\n/// Number Formatting');
+  debugPrint('// Phone number format');
+  debugPrint(phone); // 187 0221 0183
+  debugPrint(phone1); // 187 3221 0183
+  debugPrint(phone2); // 187 4222 0183
+
+  // Bank card number format
+  final String bank16 = '6222333444455551'.bankFormat;
+  final String bank17 = '62223334444555562'.bankFormat;
+  final String bank19 = '6222333444455556785'.bankFormat;
+  debugPrint('\n// Bank card number format');
+  debugPrint(bank16); // 6222 3334 4445 5551
+  debugPrint(bank17); // 6222 3334 4445 5556 2
+  debugPrint(bank19); // 6222 3334 4445 5556 785
+}
+
 /// Widgets Test
 class Widgets extends StatelessWidget {
   const Widgets({Key? key}) : super(key: key);
@@ -138,7 +186,7 @@ class Widgets extends StatelessWidget {
         appBar: AppBar(title: const Text('Widgets Test')),
         body: Container(
           alignment: Alignment.center,
-          child: const ColorWidget(),
+          child: const ListChoice(),
         ),
       ),
     );
