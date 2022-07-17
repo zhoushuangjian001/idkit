@@ -273,19 +273,23 @@ class ListChoice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<ChoiceState<String>> list =
-        ['王二', '张三', '李四'].map((e) => ChoiceState(data: e)).toList();
-    return IDKitChoice<String>.list(
-      type: ChoiceType.multiple,
+    final List<ChoiceState<String>> list = ['王二', '张三', '李四', '李四', '李四']
+        .map((e) => ChoiceState(data: e))
+        .toList();
+    return IDKitChoice<String>.warp(
+      type: ChoiceType.single,
       sources: list,
-      itemBuilder: (context, data, index) {
+      itemBuilder: (context, data) {
         final color = data.state ? Colors.red : Colors.blue;
         return Container(
+          width: 200,
           color: color,
           alignment: Alignment.center,
           child: Text(data.data ?? ''),
         );
       },
+      valueCall: (_) {},
+      // multipleValueCall: (_) {},
     );
   }
 }

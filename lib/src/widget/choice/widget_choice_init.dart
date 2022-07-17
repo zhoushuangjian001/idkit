@@ -13,7 +13,8 @@ class ChoiceWidget<K extends Object> extends StatefulWidget {
     required this.sort,
     this.itemBuilder,
     this.separatorBuilder,
-    this.valuesCall,
+    this.valueCall,
+    this.multipleValuesCall,
     this.mMaxCount,
     this.reverse = false,
     this.controller,
@@ -50,7 +51,8 @@ class ChoiceWidget<K extends Object> extends StatefulWidget {
   final List<ChoiceState<K>> sources;
   final ItemBuilder<K>? itemBuilder;
   final ItemBuilder<K>? separatorBuilder;
-  final Function(Iterable<ChoiceState<K>>)? valuesCall;
+  final Function(ChoiceState<K>)? valueCall;
+  final Function(List<ChoiceState<K>>)? multipleValuesCall;
   final Axis scrollDirection;
   final bool reverse;
   final ScrollController? controller;
@@ -89,11 +91,15 @@ class ChoiceWidget<K extends Object> extends StatefulWidget {
 
 class _ChoiceWidgetState<K extends Object> extends State<ChoiceWidget<K>> {
   // Back to data processing.
-  void _handleBackData() {
+  void _handleReturnData() {
     final Iterable<ChoiceState<K>> iterable =
-        widget.sources.where((element) => element.state);
+        widget.sources.where((element) => element.state == true);
     if (iterable.isNotEmpty) {
-      widget.valuesCall?.call(iterable);
+      if (widget.type == ChoiceType.single) {
+        widget.valueCall?.call(iterable.last);
+      } else {
+        widget.multipleValuesCall?.call(iterable.toList());
+      }
     }
   }
 
@@ -116,9 +122,18 @@ class _ChoiceWidgetState<K extends Object> extends State<ChoiceWidget<K>> {
     model.state = !model.state;
   }
 
+  // Data callback processing
+  void dataCallBackProcess(ChoiceState<K> data) {
+    if (mounted) {
+      _handleTapEvent(data);
+      _handleReturnData();
+      setState(() {});
+    }
+  }
+
   @override
   void initState() {
-    _handleBackData();
+    _handleReturnData();
     super.initState();
   }
 
@@ -128,6 +143,7 @@ class _ChoiceWidgetState<K extends Object> extends State<ChoiceWidget<K>> {
     switch (widget.sort) {
       case ChoiceSort.list:
         child = ListView.builder(
+          key: widget.key,
           scrollDirection: widget.scrollDirection,
           reverse: widget.reverse,
           controller: widget.controller,
@@ -140,15 +156,8 @@ class _ChoiceWidgetState<K extends Object> extends State<ChoiceWidget<K>> {
           itemBuilder: (context, index) {
             final ChoiceState<K> data = widget.sources[index];
             return InkWell(
-              child: widget.itemBuilder!(context, data, index),
-              onTap: () {
-                _handleTapEvent(data);
-                if (mounted) {
-                  setState(() {
-                    _handleBackData();
-                  });
-                }
-              },
+              child: widget.itemBuilder!(context, data),
+              onTap: () => dataCallBackProcess(data),
             );
           },
           itemCount: widget.sources.length,
@@ -166,6 +175,7 @@ class _ChoiceWidgetState<K extends Object> extends State<ChoiceWidget<K>> {
         break;
       case ChoiceSort.separated:
         child = ListView.separated(
+          key: widget.key,
           scrollDirection: widget.scrollDirection,
           reverse: widget.reverse,
           controller: widget.controller,
@@ -176,20 +186,13 @@ class _ChoiceWidgetState<K extends Object> extends State<ChoiceWidget<K>> {
           itemBuilder: (context, index) {
             final ChoiceState<K> data = widget.sources[index];
             return InkWell(
-              child: widget.itemBuilder!(context, data, index),
-              onTap: () {
-                _handleTapEvent(data);
-                if (mounted) {
-                  setState(() {
-                    _handleBackData();
-                  });
-                }
-              },
+              child: widget.itemBuilder!(context, data),
+              onTap: () => dataCallBackProcess(data),
             );
           },
           separatorBuilder: (BuildContext context, int index) {
             final ChoiceState<K> data = widget.sources[index];
-            return widget.separatorBuilder?.call(context, data, index) ??
+            return widget.separatorBuilder?.call(context, data) ??
                 const Divider();
           },
           itemCount: widget.sources.length,
@@ -212,6 +215,7 @@ class _ChoiceWidgetState<K extends Object> extends State<ChoiceWidget<K>> {
         break;
       case ChoiceSort.warp:
         child = Wrap(
+          key: widget.key,
           direction: widget.direction,
           alignment: widget.alignment,
           spacing: widget.spacing,
@@ -221,9 +225,11 @@ class _ChoiceWidgetState<K extends Object> extends State<ChoiceWidget<K>> {
           textDirection: widget.textDirection,
           verticalDirection: widget.verticalDirection,
           clipBehavior: widget.clipBehavior,
-          children: widget.sources.map((e) {
-            final index = widget.sources.indexOf(e);
-            return widget.itemBuilder!.call(context, e, index);
+          children: widget.sources.map((data) {
+            return InkWell(
+              child: widget.itemBuilder!.call(context, data),
+              onTap: () => dataCallBackProcess(data),
+            );
           }).toList(),
         );
         break;
