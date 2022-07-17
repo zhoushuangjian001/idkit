@@ -16,6 +16,8 @@ The idkit is a package that is more convenient for Flutter developers to develop
 
 [6.Formatting of mobile phone numbers and bank card numbers.](https://github.com/zhoushuangjian001/idkit/blob/master/readme_md/format_readme.md)
 
+[7.Quick single-selection and multi-selection widgets.](https://github.com/zhoushuangjian001/idkit/blob/master/readme_md/choice_readme.md)
+
 
 ## Suggest
 If there is any problem in use, please contact me in time. Meanwhile, your new features or components are welcome.
