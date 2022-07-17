@@ -276,9 +276,10 @@ class ListChoice extends StatelessWidget {
     final List<ChoiceState<String>> list = ['王二', '张三', '李四', '李四', '李四']
         .map((e) => ChoiceState(data: e))
         .toList();
-    return IDKitChoice<String>.warp(
+    return IDKitChoice<String>.grid(
       type: ChoiceType.single,
       sources: list,
+      mMaxCount: 2,
       itemBuilder: (context, data) {
         final color = data.state ? Colors.red : Colors.blue;
         return Container(
